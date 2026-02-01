@@ -168,7 +168,7 @@
         }, 600);
         
         setTimeout(() => {
-            $('.header-content-right .main-btn').addClass('animate-in');
+            $('.header-content-right .hero-cta-inline').addClass('animate-in');
         }, 800);
         
         setTimeout(() => {
