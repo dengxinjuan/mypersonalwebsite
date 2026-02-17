@@ -13,9 +13,11 @@
 
 ## Next up
 
-- Add or edit blog posts (real content, images, links).
-- Deploy to GitHub Pages / Netlify / Vercel and add repo URL to README (optional).
-- Meta description and Open Graph tags for better previews (optional).
+- Add a real HTML resume; redo the resume section.
+- Add real blog content and polish the blog page (improve look and feel).
+- Add recent projects to the Projects section.
+- Add meta description and Open Graph tags for better search and link previews.
+- (Optional) Rename "My Recent Works" to "Projects" or "Portfolio" if desired.
 
 ## Backlog / ideas
 
