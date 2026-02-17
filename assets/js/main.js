@@ -2,6 +2,10 @@
     
     "use strict";
     
+    // #region agent log
+    fetch('http://127.0.0.1:7242/ingest/1193389f-b2f3-40a5-9a33-941ef6806661',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'main.js:5',message:'main.js run',data:{},timestamp:Date.now(),hypothesisId:'H2',runId:'init'})}).catch(function(){});
+    // #endregion
+    
     //===== Prealoder
     
     $(window).on('load', function(event) {
@@ -83,20 +87,27 @@
     
     //===== Counter Up
     
-    $('.counter').counterUp({
-        delay: 10,
-        time: 1600,
-    });
+    if ($.fn.counterUp && $('.counter').length) {
+        $('.counter').counterUp({
+            delay: 10,
+            time: 1600,
+        });
+    }
     
     
     //===== Magnific Popup
     
-    $('.image-popup').magnificPopup({
-      type: 'image',
-      gallery:{
-        enabled:true
-      }
-    });
+    // #region agent log
+    fetch('http://127.0.0.1:7242/ingest/1193389f-b2f3-40a5-9a33-941ef6806661',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'main.js:94',message:'before magnificPopup',data:{hasFn:typeof $.fn.magnificPopup},timestamp:Date.now(),hypothesisId:'H2',runId:'post-fix'})}).catch(function(){});
+    // #endregion
+    if ($.fn.magnificPopup && $('.image-popup').length) {
+        $('.image-popup').magnificPopup({
+            type: 'image',
+            gallery:{
+                enabled:true
+            }
+        });
+    }
     
     
     //===== Back to top
