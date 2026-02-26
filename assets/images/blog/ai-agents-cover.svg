@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1440" viewBox="0 0 1080 1440">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0c29"/>
+      <stop offset="40%" style="stop-color:#302b63"/>
+      <stop offset="100%" style="stop-color:#24243e"/>
+    </linearGradient>
+    <linearGradient id="tagGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed"/>
+      <stop offset="100%" style="stop-color:#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#c4b5fd"/>
+    </linearGradient>
+    <linearGradient id="title2Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06b6d4"/>
+      <stop offset="100%" style="stop-color:#7c3aed"/>
+    </linearGradient>
+    <radialGradient id="orb1" cx="80%" cy="10%" r="35%">
+      <stop offset="0%" style="stop-color:rgba(124,58,237,0.4)"/>
+      <stop offset="100%" style="stop-color:rgba(124,58,237,0)"/>
+    </radialGradient>
+    <radialGradient id="orb2" cx="10%" cy="75%" r="30%">
+      <stop offset="0%" style="stop-color:rgba(6,182,212,0.3)"/>
+      <stop offset="100%" style="stop-color:rgba(6,182,212,0)"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1080" height="1440" fill="url(#bg)"/>
+
+  <!-- Grid pattern -->
+  <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(124,58,237,0.08)" stroke-width="1"/>
+  </pattern>
+  <rect width="1080" height="1440" fill="url(#grid)"/>
+
+  <!-- Orbs -->
+  <rect width="1080" height="1440" fill="url(#orb1)"/>
+  <rect width="1080" height="1440" fill="url(#orb2)"/>
+
+  <!-- Save tag -->
+  <g transform="translate(830, 50) rotate(3)">
+    <rect x="0" y="0" width="200" height="60" rx="12" fill="rgba(245,158,11,0.9)"/>
+    <text x="100" y="40" text-anchor="middle" font-family="Droid Sans Fallback, Arial, sans-serif" font-size="26" font-weight="900" fill="#000">BOOKMARK</text>
+  </g>
+
+  <!-- Top tag -->
+  <rect x="330" y="200" width="420" height="56" rx="28" fill="url(#tagGrad)"/>
+  <text x="540" y="236" text-anchor="middle" font-family="Droid Sans Fallback, Arial, sans-serif" font-size="26" font-weight="700" fill="white" letter-spacing="4">AI AGENTS EXPLAINED</text>
+
+  <!-- Robot emoji -->
+  <text x="540" y="370" text-anchor="middle" font-size="100" filter="url(#glow)">🤖</text>
+
+  <!-- Title line 1 -->
+  <text x="540" y="490" text-anchor="middle" font-family="Droid Sans Fallback, Arial, sans-serif" font-size="78" font-weight="900" fill="url(#titleGrad)">Fundamentals of</text>
+
+  <!-- Title line 2 -->
+  <text x="540" y="600" text-anchor="middle" font-family="Droid Sans Fallback, Arial, sans-serif" font-size="88" font-weight="900" fill="url(#title2Grad)">AI Agents</text>
+
+  <!-- Subtitle -->
+  <text x="540" y="670" text-anchor="middle" font-family="Droid Sans Fallback, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.65)">Everything You Need to Know in 21 Minutes</text>
+
+  <!-- Four pattern boxes -->
+  <!-- Box 1: Reflection -->
+  <g transform="translate(120, 740)">
+    <rect width="400" height="160" rx="20" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+    <text x="35" y="60" font-size="44">🪞</text>
+    <text x="95" y="62" font-family="Droid Sans Fallback, Arial, sans-serif" font-size="32" font-weight="700" fill="#c4b5fd">Reflection</text>
+    <text x="35" y="105" font-family="Droid Sans Fallback, Arial, sans-serif" font-size="22" fill="rgba(255,255,255,0.6)">Self-evaluate and iteratively</text>
+    <text x="35" y="135" font-family="Droid Sans Fallback, Arial, sans-serif" font-size="22" fill="rgba(255,255,255,0.6)">improve its own output</text>
+  </g>
+
+  <!-- Box 2: Tool Use -->
+  <g transform="translate(560, 740)">
+    <rect width="400" height="160" rx="20" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+    <text x="35" y="60" font-size="44">🔧</text>
+    <text x="95" y="62" font-family="Droid Sans Fallback, Arial, sans-serif" font-size="32" font-weight="700" fill="#c4b5fd">Tool Use</text>
+    <text x="35" y="105" font-family="Droid Sans Fallback, Arial, sans-serif" font-size="22" fill="rgba(255,255,255,0.6)">Call external APIs, search,</text>
+    <text x="35" y="135" font-family="Droid Sans Fallback, Arial, sans-serif" font-size="22" fill="rgba(255,255,255,0.6)">and execute code</text>
+  </g>
+
+  <!-- Box 3: Planning -->
+  <g transform="translate(120, 930)">
+    <rect width="400" height="160" rx="20" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+    <text x="35" y="60" font-size="44">🗺️</text>
+    <text x="95" y="62" font-family="Droid Sans Fallback, Arial, sans-serif" font-size="32" font-weight="700" fill="#c4b5fd">Planning</text>
+    <text x="35" y="105" font-family="Droid Sans Fallback, Arial, sans-serif" font-size="22" fill="rgba(255,255,255,0.6)">Break complex tasks into</text>
+    <text x="35" y="135" font-family="Droid Sans Fallback, Arial, sans-serif" font-size="22" fill="rgba(255,255,255,0.6)">executable sub-steps</text>
+  </g>
+
+  <!-- Box 4: Multi-Agent -->
+  <g transform="translate(560, 930)">
+    <rect width="400" height="160" rx="20" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+    <text x="35" y="60" font-size="44">👥</text>
+    <text x="95" y="62" font-family="Droid Sans Fallback, Arial, sans-serif" font-size="32" font-weight="700" fill="#c4b5fd">Multi-Agent</text>
+    <text x="35" y="105" font-family="Droid Sans Fallback, Arial, sans-serif" font-size="22" fill="rgba(255,255,255,0.6)">Specialized AIs collaborate</text>
+    <text x="35" y="135" font-family="Droid Sans Fallback, Arial, sans-serif" font-size="22" fill="rgba(255,255,255,0.6)">to tackle complex tasks</text>
+  </g>
+
+  <!-- Multi-agent patterns row -->
+  <g transform="translate(120, 1150)">
+    <!-- Sequential -->
+    <rect width="260" height="120" rx="16" fill="rgba(124,58,237,0.2)" stroke="rgba(124,58,237,0.4)" stroke-width="1"/>
+    <text x="130" y="45" text-anchor="middle" font-family="Droid Sans Fallback, Arial, sans-serif" font-size="22" font-weight="700" fill="white">Sequential</text>
+    <text x="130" y="80" text-anchor="middle" font-family="Droid Sans Fallback, Arial, sans-serif" font-size="28" fill="#06b6d4">A → B → C</text>
+    <text x="130" y="108" text-anchor="middle" font-family="Droid Sans Fallback, Arial, sans-serif" font-size="18" fill="rgba(255,255,255,0.5)">Pipeline processing</text>
+  </g>
+  <g transform="translate(410, 1150)">
+    <!-- Parallel -->
+    <rect width="260" height="120" rx="16" fill="rgba(6,182,212,0.2)" stroke="rgba(6,182,212,0.4)" stroke-width="1"/>
+    <text x="130" y="45" text-anchor="middle" font-family="Droid Sans Fallback, Arial, sans-serif" font-size="22" font-weight="700" fill="white">Parallel</text>
+    <text x="130" y="80" text-anchor="middle" font-family="Droid Sans Fallback, Arial, sans-serif" font-size="28" fill="#f59e0b">A ⇅ B ⇅ C</text>
+    <text x="130" y="108" text-anchor="middle" font-family="Droid Sans Fallback, Arial, sans-serif" font-size="18" fill="rgba(255,255,255,0.5)">Simultaneous execution</text>
+  </g>
+  <g transform="translate(700, 1150)">
+    <!-- Async -->
+    <rect width="260" height="120" rx="16" fill="rgba(245,158,11,0.2)" stroke="rgba(245,158,11,0.4)" stroke-width="1"/>
+    <text x="130" y="45" text-anchor="middle" font-family="Droid Sans Fallback, Arial, sans-serif" font-size="22" font-weight="700" fill="white">Asynchronous</text>
+    <text x="130" y="80" text-anchor="middle" font-family="Droid Sans Fallback, Arial, sans-serif" font-size="28" fill="#10b981">A ~ B ~ C</text>
+    <text x="130" y="108" text-anchor="middle" font-family="Droid Sans Fallback, Arial, sans-serif" font-size="18" fill="rgba(255,255,255,0.5)">Independent monitoring</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="540" y="1370" text-anchor="middle" font-family="Droid Sans Fallback, Arial, sans-serif" font-size="22" fill="rgba(255,255,255,0.4)">Based on Tina Huang's AI Agents video | #AIAgents #MachineLearning</text>
+</svg>

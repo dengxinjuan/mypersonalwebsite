@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1440" viewBox="0 0 1080 1440">
+  <defs>
+    <linearGradient id="teal" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#06b6d4"/>
+      <stop offset="100%" style="stop-color:#0891b2"/>
+    </linearGradient>
+  </defs>
+
+  <!-- White background -->
+  <rect width="1080" height="1440" fill="#f9fafb"/>
+
+  <!-- Top nav bar -->
+  <rect width="1080" height="72" fill="#ffffff"/>
+  <rect y="72" width="1080" height="2" fill="#e5e7eb"/>
+  <!-- Breadcrumb -->
+  <text x="60" y="44" font-family="ui-monospace, monospace" font-size="22" fill="#9ca3af">Guides</text>
+  <text x="150" y="44" font-family="ui-monospace, monospace" font-size="22" fill="#d1d5db">/</text>
+  <text x="172" y="44" font-family="ui-monospace, monospace" font-size="22" fill="#374151" font-weight="600">Technical Writing</text>
+  <!-- Nav right: reading time -->
+  <text x="960" y="44" font-family="Arial, sans-serif" font-size="20" fill="#9ca3af" text-anchor="end">5 min read</text>
+
+  <!-- Left accent bar -->
+  <rect x="60" y="120" width="8" height="340" rx="4" fill="url(#teal)"/>
+
+  <!-- Main title -->
+  <text x="102" y="228" font-family="Arial Black, Arial, sans-serif" font-size="104" font-weight="900" fill="#111827">WHAT</text>
+  <text x="102" y="338" font-family="Arial Black, Arial, sans-serif" font-size="104" font-weight="900" fill="#111827">ACTUALLY</text>
+  <text x="102" y="448" font-family="Arial Black, Arial, sans-serif" font-size="100" font-weight="900" fill="#06b6d4">MAKES DOCS</text>
+
+  <!-- Large display number (decorative) -->
+  <text x="980" y="430" font-family="Arial Black, Arial, sans-serif" font-size="340" font-weight="900" fill="#f3f4f6" text-anchor="end">5</text>
+
+  <!-- Subtitle -->
+  <text x="102" y="520" font-family="Arial, sans-serif" font-size="28" fill="#6b7280">Principles from Stripe, GitHub &amp; Amplitude</text>
+
+  <!-- Horizontal divider -->
+  <rect x="60" y="556" width="960" height="2" fill="#e5e7eb"/>
+
+  <!-- Meta tags -->
+  <rect x="60" y="578" width="162" height="40" rx="20" fill="#ecfeff"/>
+  <text x="141" y="603" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#0891b2" text-anchor="middle">Documentation</text>
+
+  <rect x="240" y="578" width="116" height="40" rx="20" fill="#f3f4f6"/>
+  <text x="298" y="603" font-family="Arial, sans-serif" font-size="19" fill="#6b7280" text-anchor="middle">Feb 2025</text>
+
+  <!-- Divider -->
+  <rect x="60" y="640" width="960" height="1" fill="#f3f4f6"/>
+
+  <!-- Principles list — 5 rows -->
+
+  <!-- 01 -->
+  <rect x="60" y="656" width="960" height="128" rx="0" fill="#ffffff"/>
+  <text x="60" y="710" font-family="ui-monospace, monospace" font-size="22" fill="#06b6d4" font-weight="700">01</text>
+  <text x="116" y="710" font-family="Arial Black, Arial, sans-serif" font-size="32" font-weight="900" fill="#111827">Know Your Audience</text>
+  <text x="116" y="748" font-family="Arial, sans-serif" font-size="22" fill="#6b7280">Write for one persona. Mixing audiences dilutes everything.</text>
+  <rect x="60" y="783" width="960" height="1" fill="#f3f4f6"/>
+
+  <!-- 02 -->
+  <rect x="60" y="784" width="960" height="128" rx="0" fill="#f9fafb"/>
+  <text x="60" y="838" font-family="ui-monospace, monospace" font-size="22" fill="#06b6d4" font-weight="700">02</text>
+  <text x="116" y="838" font-family="Arial Black, Arial, sans-serif" font-size="32" font-weight="900" fill="#111827">Match Format to Purpose</text>
+  <text x="116" y="876" font-family="Arial, sans-serif" font-size="22" fill="#6b7280">Tutorial, How-to, Reference, or Explanation — pick one per page.</text>
+  <rect x="60" y="911" width="960" height="1" fill="#e5e7eb"/>
+
+  <!-- 03 -->
+  <rect x="60" y="912" width="960" height="128" rx="0" fill="#ffffff"/>
+  <text x="60" y="966" font-family="ui-monospace, monospace" font-size="22" fill="#06b6d4" font-weight="700">03</text>
+  <text x="116" y="966" font-family="Arial Black, Arial, sans-serif" font-size="32" font-weight="900" fill="#111827">Consistency Over Cleverness</text>
+  <text x="116" y="1004" font-family="Arial, sans-serif" font-size="22" fill="#6b7280">Readers notice inconsistency more than they notice good writing.</text>
+  <rect x="60" y="1039" width="960" height="1" fill="#f3f4f6"/>
+
+  <!-- 04 -->
+  <rect x="60" y="1040" width="960" height="128" rx="0" fill="#f9fafb"/>
+  <text x="60" y="1094" font-family="ui-monospace, monospace" font-size="22" fill="#06b6d4" font-weight="700">04</text>
+  <text x="116" y="1094" font-family="Arial Black, Arial, sans-serif" font-size="32" font-weight="900" fill="#111827">Navigation Is a Subway Map</text>
+  <text x="116" y="1132" font-family="Arial, sans-serif" font-size="22" fill="#6b7280">Structure signals how the whole product fits together.</text>
+  <rect x="60" y="1167" width="960" height="1" fill="#e5e7eb"/>
+
+  <!-- 05 -->
+  <rect x="60" y="1168" width="960" height="128" rx="0" fill="#ffffff"/>
+  <text x="60" y="1222" font-family="ui-monospace, monospace" font-size="22" fill="#06b6d4" font-weight="700">05</text>
+  <text x="116" y="1222" font-family="Arial Black, Arial, sans-serif" font-size="32" font-weight="900" fill="#111827">Wrong Docs &gt; No Docs</text>
+  <text x="116" y="1260" font-family="Arial, sans-serif" font-size="22" fill="#6b7280">Inaccurate content erodes trust faster than a gap would.</text>
+  <rect x="60" y="1295" width="960" height="1" fill="#f3f4f6"/>
+
+  <!-- Footer bar -->
+  <rect y="1340" width="1080" height="100" fill="#111827"/>
+  <text x="60" y="1398" font-family="ui-monospace, monospace" font-size="20" fill="#6b7280">Based on Mintlify's Technical Writing Guide</text>
+  <rect x="60" y="1410" width="240" height="3" rx="2" fill="#06b6d4"/>
+  <text x="1020" y="1398" font-family="Arial, sans-serif" font-size="20" fill="#374151" text-anchor="end">#TechWriting #Docs</text>
+</svg>

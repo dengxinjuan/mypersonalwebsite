@@ -183,7 +183,21 @@
             <div class="col-xl-5 col-lg-6">
               <div class="header-content-right">
                 <h4 class="sub-title">Hello, I'm</h4>
-                <h1 class="title">Xinjuan Deng</h1>
+                <div class="hero-name-block">
+                  <h1 class="title">Xinjuan Deng</h1>
+                  <div class="name-pronunciation">
+                    <div class="pronunciation-row">
+                      <p class="pronunciation-phonetic">/ SHIN-jwahn · DUNG /</p>
+                      <button type="button" class="hear-name-btn" id="hear-name-btn" aria-label="Hear my name">
+                        <i class="lni-volume-high"></i>
+                        Hear my name
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <audio id="name-pronunciation-audio" preload="metadata" aria-hidden="true">
+                  <source src="assets/audio/Record%20(online-voice-recorder.com).mp3" type="audio/mpeg" />
+                </audio>
                 <p>Experienced Customer Support Engineer specializing in strategic client partnerships and technical solution delivery. I transform complex customer challenges into sustainable success outcomes, driving both technical excellence and long-term business growth.</p>
                 <div class="hero-cta-inline">
                   <a class="main-btn" href="#work">View my Work</a>
@@ -601,34 +615,52 @@
         <div class="row">
           <div class="col-lg-4 col-md-6">
             <div class="single-blog mt-30">
-              <div class="blog-image">
-                <img src="assets/images/work/w-1.png" alt="Getting Started with API Integration" />
+              <div class="blog-image blog-image--contain">
+                <img src="assets/images/blog/claude-skills-infographic.png" alt="How to Build Custom Skills for Claude" />
               </div>
-              <div class="blog-content">
-                <h4 class="blog-title"><a href="blog/post-1.html">Getting Started with API Integration</a></h4>
-                <span><i class="lni-calendar"></i> March 15, 2025</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="single-blog mt-30">
-              <div class="blog-image">
-                <img src="assets/images/work/w-2.jpg" alt="Customer Success Best Practices" />
-              </div>
-              <div class="blog-content">
-                <h4 class="blog-title"><a href="blog/post-2.html">Customer Success Best Practices</a></h4>
-                <span><i class="lni-calendar"></i> February 28, 2025</span>
+              <div class="blog-info">
+                <span class="blog-category">Engineering</span>
+                <h4 class="blog-title"><a href="blog/post-1.html">How to Build Custom Skills for Claude (And Why You Should)</a></h4>
+                <div class="blog-meta">
+                  <span><i class="lni-calendar"></i> March 15, 2025</span>
+                  <span><i class="lni-timer"></i> 4 min read</span>
+                </div>
+                <p class="blog-excerpt">If you've ever found yourself copy-pasting the same long prompt over and over, Claude skills are for you. One SKILL.md file, and you've got an AI teammate that already knows your process.</p>
+                <a href="blog/post-1.html" class="blog-read-more">Read more <i class="lni-arrow-right"></i></a>
               </div>
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="single-blog mt-30">
-              <div class="blog-image">
-                <img src="assets/images/work/w-3-2.png" alt="Technical Documentation Tips" />
+              <div class="blog-image blog-image--contain">
+                <img src="assets/images/blog/ai-agents-cover.svg" alt="Everything You Need to Know About AI Agents" />
               </div>
-              <div class="blog-content">
-                <h4 class="blog-title"><a href="blog/post-3.html">Technical Documentation Tips</a></h4>
-                <span><i class="lni-calendar"></i> February 10, 2025</span>
+              <div class="blog-info">
+                <span class="blog-category">AI</span>
+                <h4 class="blog-title"><a href="blog/post-2.html">Everything You Need to Know About AI Agents in 21 Minutes</a></h4>
+                <div class="blog-meta">
+                  <span><i class="lni-calendar"></i> February 28, 2025</span>
+                  <span><i class="lni-timer"></i> 5 min read</span>
+                </div>
+                <p class="blog-excerpt">From "a thing that talks" to "a thing that does" — a breakdown of the four design patterns and multi-agent collaboration modes every builder should understand.</p>
+                <a href="blog/post-2.html" class="blog-read-more">Read more <i class="lni-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="single-blog mt-30">
+              <div class="blog-image blog-image--contain">
+                <img src="assets/images/blog/docs-guide-cover.svg" alt="What Actually Makes Technical Documentation Good" />
+              </div>
+              <div class="blog-info">
+                <span class="blog-category">Documentation</span>
+                <h4 class="blog-title"><a href="blog/post-3.html">What Actually Makes Technical Documentation Good</a></h4>
+                <div class="blog-meta">
+                  <span><i class="lni-calendar"></i> February 10, 2025</span>
+                  <span><i class="lni-timer"></i> 5 min read</span>
+                </div>
+                <p class="blog-excerpt">Most support tickets exist because something wasn't documented well. Here's what I learned from how Stripe, GitHub, and Amplitude think about their docs.</p>
+                <a href="blog/post-3.html" class="blog-read-more">Read more <i class="lni-arrow-right"></i></a>
               </div>
             </div>
           </div>
@@ -1057,5 +1089,19 @@
 
     <!--====== Main js ======-->
     <script src="assets/js/main.js"></script>
+
+    <!-- Name pronunciation audio -->
+    <script>
+      (function () {
+        var btn = document.getElementById('hear-name-btn');
+        var audio = document.getElementById('name-pronunciation-audio');
+        if (btn && audio) {
+          btn.addEventListener('click', function () {
+            audio.currentTime = 0;
+            audio.play();
+          });
+        }
+      })();
+    </script>
   </body>
 </html>

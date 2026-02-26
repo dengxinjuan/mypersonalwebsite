@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Customer Success Best Practices | Xinjuan Deng</title>
+    <title>Everything You Need to Know About AI Agents in 21 Minutes | Xinjuan Deng</title>
     <link rel="shortcut icon" href="../assets/images/mylogo.png" type="image/png" />
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../assets/css/LineIcons.css" />
@@ -44,16 +44,56 @@
 
     <main class="single-blog-page pt-120 pb-80 post-style-featured">
       <div class="container">
+        <nav class="blog-breadcrumb">
+          <a href="../index.html#blog"><i class="lni-arrow-left"></i> Back to Blog</a>
+        </nav>
         <article class="single-blog-post">
           <div class="post-inner">
-            <img src="../assets/images/work/w-2.jpg" alt="Customer Success Best Practices" class="post-featured-image" />
-            <h1 class="blog-title">Customer Success Best Practices</h1>
-            <p class="post-meta"><i class="lni-calendar"></i> February 28, 2025</p>
+            <h1 class="blog-title">Everything You Need to Know About AI Agents in 21 Minutes (So You Don't Have To)</h1>
+            <div class="post-meta-bar">
+              <span class="meta-category">AI</span>
+              <span class="meta-item"><i class="lni-calendar"></i> February 28, 2025</span>
+              <span class="meta-item"><i class="lni-timer"></i> 5 min read</span>
+            </div>
             <div class="post-body">
-              <p>Customer success is about more than solving tickets—it's about helping customers achieve their goals with your product. Here are a few practices that scale well.</p>
-              <p><strong>Listen first.</strong> Before suggesting a solution, understand the business context. What are they trying to accomplish? What's blocking them? A short discovery conversation often reveals a simpler path.</p>
-              <p><strong>Set expectations.</strong> Be clear about timelines, next steps, and what you need from the customer. Follow up when you say you will. Consistency builds trust.</p>
-              <p><strong>Share knowledge.</strong> Turn one-off answers into docs, snippets, or runbooks so the next customer (or teammate) can self-serve. That reduces repeat work and improves resolution time.</p>
+              <p>I just spent a solid chunk of time going down the AI agents rabbit hole, and I want to save you the trouble. Tina Huang did an incredible job condensing what took her three courses, dozens of papers, and over 200 pages of notes into a single 21-minute video. Here's what I took away from it.</p>
+
+              <figure class="post-figure">
+                <img src="../assets/images/blog/ai-agents-cover.svg" alt="AI Agent Knowledge Map — 4 Design Patterns + 3 Collaboration Modes" />
+                <figcaption>AI Agent Knowledge Map — 4 Design Patterns + 3 Collaboration Modes</figcaption>
+              </figure>
+
+              <h2>First Off, What Even Is an AI Agent?</h2>
+              <p>If you've been using ChatGPT or Claude, you've been having conversations with large language models. That's great, but it's kind of like having a really smart friend who can only talk to you — they can't actually <em>do</em> anything in the real world.</p>
+              <p>An AI agent changes that. It's what happens when you give an LLM the ability to interact with its environment. Suddenly, it can search the web, call APIs, query databases, execute code, and take real actions. It goes from "a thing that talks" to "a thing that does."</p>
+              <p>That distinction is surprisingly important, and it's the foundation for everything else.</p>
+
+              <h2>The Big Difference: Agentic vs. Non-Agentic Workflows</h2>
+              <p>Here's a simple way to think about it. Say you need to write an essay.</p>
+              <p>A non-agentic approach is like sitting down and writing it straight through, start to finish, one shot. You hit "submit" and you're done.</p>
+              <p>An agentic approach is more like how you'd actually write a good essay in real life. You'd outline it first, do some research, write a draft, read it back, realize the second paragraph is weak, do more research, revise, and keep going in loops until it's actually good.</p>
+              <p>That circular, iterative process — think, act, evaluate, revise, repeat — is what makes agentic workflows so much more effective. Research consistently shows that this approach produces better results than the one-shot method, even when using the same underlying model.</p>
+
+              <h2>The Four Design Patterns You Should Know</h2>
+              <p>Andrew Ng lays out four key design patterns for AI agents. They fall into two buckets: things a single agent can do, and things that require a team.</p>
+              <p><strong>Reflection</strong> is the first one, and it's deceptively powerful. The agent generates an output, then steps back and evaluates it. "Is this actually good? What could be better?" Then it revises and tries again. This self-critique loop is one of the simplest patterns to implement, but it makes a huge difference in output quality.</p>
+              <p><strong>Tool Use</strong> is when you give the agent access to external tools — a web search engine, a code interpreter, a calculator, an API. The agent decides on its own when to reach for a tool, which one to use, and how to use it. It's like giving someone access to a toolbox instead of asking them to do everything with their bare hands.</p>
+              <p><strong>Planning</strong> is about breaking complex tasks into manageable steps. Instead of trying to tackle everything at once, the agent figures out what needs to happen first, second, and third. It creates a plan, executes it step by step, and can adjust based on what it learns along the way.</p>
+              <p><strong>Multi-Agent Collaboration</strong> is where things get really interesting. Instead of one AI doing everything, you have multiple agents, each with specialized roles, working together like a team.</p>
+
+              <h2>Why Multiple Agents Beat a Single One</h2>
+              <p>This was the insight that surprised me most. You might think: "Why not just tell one AI to do everything?" It seems simpler.</p>
+              <p>But the research shows that multi-agent systems consistently outperform single agents on complex tasks. It's the same reason companies have teams instead of one person doing every job. A writer agent writes. An editor agent reviews. A researcher agent gathers data. Each one is prompted to be a specialist, and together they produce something better than any one of them could alone.</p>
+              <p>There are a few ways to orchestrate these teams. <strong>Sequential</strong> is the simplest — agent A finishes, passes to B, who passes to C. Like a pipeline. <strong>Parallel</strong> means multiple agents work on different parts simultaneously. <strong>Asynchronous</strong> is for situations where agents need to work independently and at unpredictable times — perfect for real-time monitoring. And <strong>Flow</strong> connects all of these patterns into complex workflows. Powerful, but start simple.</p>
+
+              <h2>What This Means for You</h2>
+              <p>If there's one takeaway, it's that prompt engineering is still the highest-ROI skill you can develop. Whether you're working with a single agent or orchestrating a team, how you structure their roles, define their tasks, and design their workflows determines whether you get something useful or something unreliable.</p>
+              <p>My suggestion: start with a single agent using the reflection pattern. Get comfortable with that loop of generate-evaluate-revise. Then gradually add tools, then planning, and only bring in multi-agent setups when you genuinely need them. Complexity should be earned, not assumed.</p>
+
+              <h2>Final Thoughts</h2>
+              <p>AI agents represent a genuine shift in how we interact with AI. We're moving from "AI as a conversation partner" to "AI as a capable teammate." The fundamentals aren't that complicated — it's really about giving AI the ability to act, iterate, and collaborate.</p>
+              <p>The people who understand these patterns now will have a massive head start as agent frameworks continue to mature. And honestly, even just understanding the difference between agentic and non-agentic thinking can change how you approach your own work, AI or not.</p>
+              <p><em>Based on "AI Agents Fundamentals In 21 Minutes" by Tina Huang.</em></p>
             </div>
           </div>
         </article>

@@ -171,7 +171,7 @@
         }, 200);
         
         setTimeout(() => {
-            $('.header-content-right .title').addClass('animate-in');
+            $('.header-content-right .hero-name-block').addClass('animate-in');
         }, 400);
         
         setTimeout(() => {

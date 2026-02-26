@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1080px;
+    height: 1440px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    overflow: hidden;
+  }
+  .page {
+    width: 1080px;
+    height: 1440px;
+    background: linear-gradient(180deg, #faf5ff 0%, #ede9fe 50%, #ddd6fe 100%);
+    position: relative;
+    padding: 60px;
+  }
+  .header { text-align: center; margin-bottom: 40px; }
+  .header .emoji { font-size: 48px; }
+  .header h1 {
+    font-size: 50px;
+    font-weight: 900;
+    color: #1e1b4b;
+    margin: 10px 0 8px;
+  }
+  .header .sub {
+    font-size: 26px;
+    color: #6b21a8;
+    font-weight: 700;
+  }
+  .divider {
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #7c3aed, transparent);
+    margin: 30px 0;
+    border-radius: 2px;
+  }
+  .section-title {
+    font-size: 36px;
+    font-weight: 900;
+    color: #4c1d95;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .section-title .badge {
+    background: #7c3aed;
+    color: white;
+    font-size: 18px;
+    padding: 6px 18px;
+    border-radius: 30px;
+  }
+  .comparison {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 36px;
+  }
+  .compare-box {
+    flex: 1;
+    border-radius: 24px;
+    padding: 32px;
+    text-align: center;
+  }
+  .compare-box.non-agentic {
+    background: rgba(0,0,0,0.06);
+    border: 2px solid rgba(0,0,0,0.1);
+  }
+  .compare-box.agentic {
+    background: linear-gradient(135deg, #7c3aed, #6d28d9);
+    color: white;
+    border: 2px solid #7c3aed;
+    box-shadow: 0 8px 30px rgba(124, 58, 237, 0.3);
+  }
+  .compare-box .box-title {
+    font-size: 28px;
+    font-weight: 900;
+    margin-bottom: 16px;
+  }
+  .compare-box .arrow-flow {
+    font-size: 48px;
+    margin: 12px 0;
+    letter-spacing: 8px;
+  }
+  .compare-box .desc {
+    font-size: 20px;
+    line-height: 1.6;
+    opacity: 0.85;
+  }
+  .patterns-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 36px;
+  }
+  .pattern-card {
+    background: white;
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    border-left: 6px solid;
+    position: relative;
+  }
+  .pattern-card:nth-child(1) { border-left-color: #7c3aed; }
+  .pattern-card:nth-child(2) { border-left-color: #06b6d4; }
+  .pattern-card:nth-child(3) { border-left-color: #f59e0b; }
+  .pattern-card:nth-child(4) { border-left-color: #10b981; }
+  .pattern-card .num {
+    position: absolute;
+    top: 16px; right: 20px;
+    font-size: 56px;
+    font-weight: 900;
+    opacity: 0.08;
+  }
+  .pattern-card .card-icon { font-size: 40px; margin-bottom: 10px; }
+  .pattern-card .card-title {
+    font-size: 28px;
+    font-weight: 900;
+    color: #1e1b4b;
+  }
+  .pattern-card .card-subtitle {
+    font-size: 20px;
+    color: #6b21a8;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .pattern-card .card-desc {
+    font-size: 18px;
+    color: #64748b;
+    line-height: 1.5;
+  }
+  .multi-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+  .multi-box {
+    flex: 1;
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  }
+  .multi-box .m-icon { font-size: 32px; margin-bottom: 6px; }
+  .multi-box .m-name {
+    font-size: 22px;
+    font-weight: 900;
+    color: #1e1b4b;
+  }
+  .multi-box .m-flow {
+    font-size: 18px;
+    color: #7c3aed;
+    font-weight: 700;
+    margin: 6px 0;
+  }
+  .multi-box .m-desc {
+    font-size: 16px;
+    color: #64748b;
+    line-height: 1.4;
+  }
+  .footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 20px;
+    color: #6b21a8;
+    font-weight: 700;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="emoji">🤖</div>
+    <h1>AI Agent Knowledge Map</h1>
+    <div class="sub">4 Design Patterns + 3 Collaboration Modes | Visual Guide</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-title">
+    <span>🔄</span> Agentic vs Non-Agentic
+    <span class="badge">Compare</span>
+  </div>
+
+  <div class="comparison">
+    <div class="compare-box non-agentic">
+      <div class="box-title">Standard Workflow</div>
+      <div class="arrow-flow">⬇️⬇️⬇️</div>
+      <div class="desc">Linear path<br>Start to finish<br>No revision loop</div>
+    </div>
+    <div class="compare-box agentic">
+      <div class="box-title">Agentic Workflow ✨</div>
+      <div class="arrow-flow">🔄🔄🔄</div>
+      <div class="desc">Iterative loop<br>Think → Act → Evaluate<br>Continuously improve</div>
+    </div>
+  </div>
+
+  <div class="section-title">
+    <span>💡</span> Four Design Patterns
+    <span class="badge">Andrew Ng</span>
+  </div>
+
+  <div class="patterns-grid">
+    <div class="pattern-card">
+      <div class="num">01</div>
+      <div class="card-icon">🪞</div>
+      <div class="card-title">Reflection</div>
+      <div class="card-subtitle">Self-Evaluation</div>
+      <div class="card-desc">AI reviews its own output,<br>finds gaps, and improves</div>
+    </div>
+    <div class="pattern-card">
+      <div class="num">02</div>
+      <div class="card-icon">🔧</div>
+      <div class="card-title">Tool Use</div>
+      <div class="card-subtitle">External Integration</div>
+      <div class="card-desc">Calls search, APIs, and<br>code execution tools</div>
+    </div>
+    <div class="pattern-card">
+      <div class="num">03</div>
+      <div class="card-icon">🗺️</div>
+      <div class="card-title">Planning</div>
+      <div class="card-subtitle">Task Decomposition</div>
+      <div class="card-desc">Breaks complex tasks<br>into executable steps</div>
+    </div>
+    <div class="pattern-card">
+      <div class="num">04</div>
+      <div class="card-icon">👥</div>
+      <div class="card-title">Multi-Agent</div>
+      <div class="card-subtitle">Team Collaboration</div>
+      <div class="card-desc">Specialized AIs work<br>together as a team</div>
+    </div>
+  </div>
+
+  <div class="section-title">
+    <span>🚀</span> Multi-Agent Patterns
+    <span class="badge">Advanced</span>
+  </div>
+
+  <div class="multi-row">
+    <div class="multi-box">
+      <div class="m-icon">➡️</div>
+      <div class="m-name">Sequential</div>
+      <div class="m-flow">A → B → C</div>
+      <div class="m-desc">Pipeline processing,<br>step by step</div>
+    </div>
+    <div class="multi-box">
+      <div class="m-icon">⚡</div>
+      <div class="m-name">Parallel</div>
+      <div class="m-flow">A ↕ B ↕ C</div>
+      <div class="m-desc">Simultaneous execution,<br>maximum speed</div>
+    </div>
+    <div class="multi-box">
+      <div class="m-icon">🔔</div>
+      <div class="m-name">Asynchronous</div>
+      <div class="m-flow">A ~ B ~ C</div>
+      <div class="m-desc">Independent monitoring,<br>event-driven</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Based on Tina Huang's AI Agents video | #AIAgents #MachineLearning #DeepLearning
+  </div>
+</div>
+</body>
+</html>

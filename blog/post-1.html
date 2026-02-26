@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Getting Started with API Integration | Xinjuan Deng</title>
+    <title>How to Build Custom Skills for Claude | Xinjuan Deng</title>
     <link rel="shortcut icon" href="../assets/images/mylogo.png" type="image/png" />
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../assets/css/LineIcons.css" />
@@ -44,15 +44,52 @@
 
     <main class="single-blog-page pt-120 pb-80 post-style-featured">
       <div class="container">
+        <nav class="blog-breadcrumb">
+          <a href="../index.html#blog"><i class="lni-arrow-left"></i> Back to Blog</a>
+        </nav>
         <article class="single-blog-post">
           <div class="post-inner">
-            <img src="../assets/images/work/w-1.png" alt="Getting Started with API Integration" class="post-featured-image" />
-            <h1 class="blog-title">Getting Started with API Integration</h1>
-            <p class="post-meta"><i class="lni-calendar"></i> March 15, 2025</p>
+            <h1 class="blog-title">How to Build Custom Skills for Claude (And Why You Should)</h1>
+            <div class="post-meta-bar">
+              <span class="meta-category">Engineering</span>
+              <span class="meta-item"><i class="lni-calendar"></i> March 15, 2025</span>
+              <span class="meta-item"><i class="lni-timer"></i> 4 min read</span>
+            </div>
             <div class="post-body">
-              <p>API integration is a core skill for customer support engineers. Whether you're helping a client debug webhook delivery or validating REST endpoints, a clear process makes the difference.</p>
-              <p>Start by understanding the client's use case: what event or data do they need? Then map it to your API's resources and authentication method. Use tools like Postman or curl to reproduce issues in a controlled environment before suggesting code changes.</p>
-              <p>Document common patterns—OAuth flows, retry logic, idempotency—so your team can reuse them. Good documentation reduces back-and-forth and builds trust with developers.</p>
+              <p>I recently came across a detailed guide on building skills for Claude, and it completely changed how I think about working with AI assistants. If you've ever found yourself copy-pasting the same long prompt over and over, this one's for you.</p>
+              <figure class="post-figure">
+                <img src="../assets/images/blog/claude-skills-infographic.png" alt="5 Steps to Build Your Custom Claude Skill" />
+                <figcaption>5 Steps to Build Your Custom Claude Skill</figcaption>
+              </figure>
+
+              <h2>What Even Are "Skills"?</h2>
+              <p>Think of skills as playbooks for Claude. Instead of explaining your entire workflow from scratch every conversation, you write a <code>SKILL.md</code> file once, and Claude follows it every time. It's the difference between training a new intern every morning versus having a teammate who already knows the process.</p>
+              <p>The core idea is dead simple: one markdown file with clear instructions. But the magic is in how you structure it — and that's where most people get it wrong.</p>
+
+              <h2>The Anatomy That Actually Works</h2>
+              <p>Every skill starts with a <code>SKILL.md</code> file. That's the only requirement. But if you want something robust, you'll want a supporting cast of subfolders.</p>
+              <p>There's a <code>scripts/</code> folder for helper scripts — think Python utilities that handle the boring parts like file conversion or validation. A <code>references/</code> folder holds your style guides and templates, so the main <code>SKILL.md</code> stays clean and scannable. An <code>assets/</code> folder is where you stash images, fonts, and design resources. And <code>evals/</code> is where you put test cases to make sure your skill actually works.</p>
+              <p>The key insight here is progressive disclosure. Your <code>SKILL.md</code> shouldn't be a novel. Keep it under 500 lines and point Claude to reference files when it needs the details. Claude only reads those files when it actually needs them, which saves tokens and keeps things fast.</p>
+
+              <h2>The Frontmatter Trick</h2>
+              <p>Here's something I didn't realize at first: the YAML frontmatter at the top of your <code>SKILL.md</code> isn't just metadata — it's the trigger mechanism. Claude uses the <code>description</code> field to decide whether to activate your skill. So you need to pack it with trigger words, file types, and use cases.</p>
+              <p>Write something like: "Use this skill whenever someone provides a YouTube URL, a PDF, or asks to create social media content." Be generous with the trigger conditions. If Claude doesn't know when to use your skill, it won't use it.</p>
+
+              <h2>Start Small, Then Iterate</h2>
+              <p>The guide's best advice is also the most counterintuitive: don't try to build the perfect skill on your first attempt. Start with something minimal. Test it. Watch where Claude goes off-script. Then add explicit instructions to close those gaps.</p>
+              <p>This test-driven approach is way more effective than trying to anticipate every edge case upfront. You can even create formal eval cases — structured test inputs with expected outputs — to measure quality over time.</p>
+
+              <h2>The Patterns That Keep Showing Up</h2>
+              <p>After reading through the guide, a few patterns stood out as universally useful. Input detection lets your skill handle different types of content automatically — your skill figures out whether it got a URL, a PDF, or plain text, and branches accordingly. Validation gates check quality between steps so you catch problems early. And fallback strategies give Claude a Plan B when the primary approach fails.</p>
+              <p>These aren't fancy — they're just good engineering applied to prompt design.</p>
+
+              <h2>What This Means for Your Workflow</h2>
+              <p>If you're using Claude regularly for any kind of repeatable work — content creation, data processing, code review, whatever — you should probably be building skills. The upfront investment is maybe 30 minutes to write a solid <code>SKILL.md</code>, and the payoff is hours saved every week.</p>
+              <p>The best part is portability. Skills are just folders. Copy them to a colleague's machine, drop them into a new project, share them with your team. Your carefully crafted workflow becomes institutional knowledge instead of living in one person's head.</p>
+
+              <h2>Final Thoughts</h2>
+              <p>Building skills for Claude is one of those rare things that's both simple in concept and powerful in practice. One markdown file, a few supporting scripts, and suddenly you've got an AI assistant that works exactly the way you want it to.</p>
+              <p>The trick is iteration. Don't aim for perfect. Aim for useful, then make it better.</p>
             </div>
           </div>
         </article>
