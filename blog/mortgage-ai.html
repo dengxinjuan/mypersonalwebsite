@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Mortgage AI | Xinjuan Deng</title>
+    <link rel="shortcut icon" href="../assets/images/mylogo.png" type="image/png" />
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/LineIcons.css" />
+    <link rel="stylesheet" href="../assets/css/default.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+  </head>
+  <body>
+    <header class="header-area">
+      <div class="navigation fixed-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <nav class="navbar navbar-expand-lg">
+                <a class="navbar-brand" href="../index.html">
+                  <img src="../assets/images/mylogo.png" alt="Logo" style="height: 2.5em" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="toggler-icon"></span>
+                  <span class="toggler-icon"></span>
+                  <span class="toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a href="../index.html#home">Home</a></li>
+                    <li class="nav-item"><a href="../index.html#about">About</a></li>
+                    <li class="nav-item"><a href="../index.html#call-to-action">Resume</a></li>
+                    <li class="nav-item"><a href="../index.html#blog">Blog</a></li>
+                    <li class="nav-item"><a href="../index.html#work">Portfolio</a></li>
+                    <li class="nav-item"><a href="../index.html#contact">Contact</a></li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="single-blog-page pt-120 pb-80 post-style-featured">
+      <div class="container">
+        <nav class="blog-breadcrumb">
+          <a href="../index.html#work"><i class="lni-arrow-left"></i> Back to Portfolio</a>
+        </nav>
+        <article class="single-blog-post">
+          <div class="post-inner">
+            <h1 class="blog-title">Mortgage AI</h1>
+            <div class="post-meta-bar">
+              <span class="meta-category">Case study</span>
+              <span class="meta-item"><i class="lni-calendar"></i> March 2026</span>
+              <span class="meta-item"><i class="lni-timer"></i> 5 min read</span>
+            </div>
+            <div class="post-body">
+              <div class="post-links">
+                <a href="https://mortgage-ai-uwex.vercel.app/" target="_blank" rel="noopener noreferrer"><i class="lni-play"></i> Live demo</a>
+                <a href="https://github.com/dengxinjuan/mortgage-ai" target="_blank" rel="noopener noreferrer"><i class="lni-github"></i> Source on GitHub</a>
+              </div>
+
+              <h2>Overview</h2>
+              <p>
+                I built Mortgage AI to explore one question: can you make a complex financial process feel like a natural conversation? Mortgage inquiries are usually slow — you fill out a form, wait for a callback, and end up on hold. I wanted to collapse that entire experience into a single session where the AI already knows your numbers before you say a word.
+              </p>
+              <p>
+                This was also my first time working with <strong>Vapi</strong>, a voice AI platform. I went in knowing nothing about voice agents and used this project to learn from scratch — how to configure agents, how to pass data into a live call, how to design multi-agent handoffs, and how to trigger outbound phone calls from a server.
+              </p>
+
+              <figure class="post-figure">
+                <img src="../assets/images/work/mortgage-ai.png" alt="Mortgage AI application screenshot" />
+                <figcaption>Mortgage AI — form and voice experience.</figcaption>
+              </figure>
+
+              <h2>What I built</h2>
+              <p>The app has three stages that flow into each other:</p>
+              <ol>
+                <li><strong>Mortgage form</strong> — user enters loan amount, down payment, loan type, credit score, and contact details.</li>
+                <li><strong>Instant rate estimate</strong> — the Node.js backend calculates a personalised rate and monthly payment based on the inputs and returns it immediately.</li>
+                <li><strong>Voice session</strong> — a Vapi voice agent opens in the browser, greets the user by name, and already knows their rate and loan details. The user can ask questions, run "what if" scenarios mid-call, or get transferred to a mortgage education agent for concept questions (LTV, PMI, APR, etc.). When the call ends, a follow-up card appears — the user enters their phone number and a third agent calls them back within seconds, and can book a real 30-minute appointment via Google Calendar.</li>
+              </ol>
+              <p>Stack: React, Node.js / Express, Vapi, Tailwind CSS, Vercel. No database needed — Vapi stores transcripts automatically.</p>
+
+              <h2>How it works</h2>
+
+              <h3>1. Personalising the agent with variable injection</h3>
+              <p>
+                When the user submits the form, the frontend gets the calculated rate from the backend, then immediately starts a Vapi call and passes all the user’s data as variables:
+              </p>
+              <pre><code>vapi.start(squadId, {
+  assistantOverrides: {
+    variableValues: {
+      name: "Sarah",
+      rateSpoken: "six point five percent",
+      monthlyPaymentSpoken: "two thousand two hundred dollars",
+      loanAmountSpoken: "four hundred thousand dollars",
+      // ...
+    }
+  }
+})</code></pre>
+              <p>
+                The agent’s first message uses those variables directly — <code>&#123;&#123;name&#125;&#125;</code>, <code>&#123;&#123;rateSpoken&#125;&#125;</code> — so the very first thing the user hears is their own name and their own rate. No generic welcome.
+              </p>
+
+              <h3>2. Three agents, each with one job</h3>
+              <p>Rather than one agent doing everything, I split responsibilities across three focused agents:</p>
+              <ul>
+                <li><strong>Rate Inquiry Agent</strong> — handles the web voice session. Knows the user’s loan details, answers rate questions, runs "what if" scenarios.</li>
+                <li><strong>Educational Agent</strong> — explains mortgage concepts (LTV, APR, PMI, amortization). Has access to a knowledge base and always searches it before answering.</li>
+                <li><strong>Follow-up Agent</strong> — makes an outbound phone call after the session. Can check Google Calendar and book a 30-minute appointment during the call.</li>
+              </ul>
+
+              <h3>3. Routing between agents with Vapi Squads</h3>
+              <p>
+                Instead of building routing logic manually, I used <strong>Vapi Squads</strong> — a Squad groups agents and defines when to hand off between them. The rules are simple:
+              </p>
+              <ul>
+                <li>User asks a concept question ("what is LTV?") → transfer to Educational Agent</li>
+                <li>Educational Agent finishes → offer to transfer back to Rate Inquiry Agent</li>
+              </ul>
+              <p>
+                One config option made a big difference: <code>contextEngineeringPlan: "full"</code>. This passes the full conversation history to the receiving agent on every transfer, so the user never has to repeat themselves and the handoff feels seamless.
+              </p>
+
+              <h3>4. Triggering the outbound follow-up call</h3>
+              <p>
+                The follow-up call works differently from the web voice session — it’s triggered server-side. When the user submits their phone number, the frontend hits <code>POST /api/start-call</code> on the Express backend, which calls the Vapi REST API with an <code>assistantId</code>, a <code>phoneNumberId</code>, and the customer’s number. The Follow-up Agent calls them within a few seconds, pre-loaded with their data, ready to book an appointment.
+              </p>
+
+              <h2>Challenges and debugging</h2>
+              <p>
+                <strong>Numbers sounded wrong.</strong> The first time I heard the agent say "four five zero zero zero zero" instead of "four hundred fifty thousand dollars," I realised voice AI and text AI are not the same thing. Raw numbers are unpredictable when spoken aloud. The fix was to pre-convert every number into a spelled-out string on the frontend before the call starts, and keep the raw numbers separately for tool calculations only. Once I made that distinction — spoken values for the agent’s voice, raw values for logic — the audio became consistent and natural.
+              </p>
+              <p>
+                <strong>One agent trying to do too much.</strong> My first version used a single agent with a long system prompt that tried to handle both rate questions and mortgage education. It worked, but the responses were inconsistent — sometimes the agent went too deep on concepts when the user just wanted a number, and vice versa. Splitting into two focused agents (one for rates, one for education) immediately improved response quality. Specialised agents with narrow scopes behave more predictably than generalist ones with long prompts.
+              </p>
+              <p>
+                <strong>Handoff context getting lost.</strong> Early on, transfers between agents felt awkward — the educational agent would re-introduce itself even though the user had been talking for a few minutes. Adding <code>contextEngineeringPlan: "full"</code> to the Squad config solved it. The receiving agent gets the full transcript, so it knows who it’s talking to and what was already covered.
+              </p>
+              <p>
+                <strong>Web calls vs phone calls.</strong> I assumed triggering a phone call would work the same way as starting a web call. It doesn’t. Web calls are initiated client-side via the Vapi SDK. Phone calls are initiated server-side via a REST API call with a <code>phoneNumberId</code>. Understanding that distinction unblocked the outbound follow-up feature.
+              </p>
+
+              <h2>What I learned</h2>
+              <p>
+                <strong>Voice prompts are a different skill.</strong> Chat prompts can be long and detailed. Voice agent prompts need to produce short, spoken sentences — the user is listening, not reading. I started thinking about every response in terms of how long it would take to say out loud, and writing instructions like "keep answers under three sentences" directly into the system prompt.
+              </p>
+              <p>
+                <strong>Personalisation makes or breaks voice AI.</strong> A generic greeting feels like an IVR menu. An agent that opens with your name and your exact rate feels like it’s actually paying attention. The technical lift for variable injection is small — the experience difference is huge.
+              </p>
+              <p>
+                <strong>Narrow agents outperform broad ones.</strong> The more I tried to consolidate logic into fewer agents, the worse the quality got. Giving each agent a single, clear job — and letting the Squad handle routing — produced better, more consistent conversations.
+              </p>
+              <p>
+                <strong>Vapi is genuinely powerful once you understand its model.</strong> Assistants, Squads, tools, outbound calls, variable injection, knowledge bases — there’s a lot of surface area. But once the mental model clicked (assistants are the agents, squads handle routing, tools are function calls, variables personalise the session), building became fast. The hardest part was the learning curve at the start, not the implementation.
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <footer class="footer-area">
+      <div class="footer-widget pt-60 pb-40">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <div class="footer-content text-center">
+                <a href="../index.html"><img src="../assets/images/mylogo.png" alt="Logo" /></a>
+                <p class="mt-15">Welcome to provide any feedback.</p>
+                <ul>
+                  <li><a href="https://github.com/dengxinjuan" target="_blank"><i class="lni-github"></i></a></li>
+                  <li><a href="https://www.linkedin.com/in/xinjuandeng/" target="_blank"><i class="lni-linkedin-original"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <a href="#" class="back-to-top"><i class="lni-chevron-up"></i></a>
+    <script src="../assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/scrolling-nav.js"></script>
+    <script src="../assets/js/jquery.easing.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>
